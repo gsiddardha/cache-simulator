@@ -4,12 +4,12 @@ RM= rm -rf
 
 all: sim
 
-sim: access.o cache.o memory.o main.cpp
+sim: access.o cache.o memory.o matrix/aware.o matrix/unaware.o matrix/oblivious.o main.cpp
 	$(CC) $(CFLAGS) $^ -o $@
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) *.o
+	$(RM) *.o matrix/*.o
 	$(RM) sim
