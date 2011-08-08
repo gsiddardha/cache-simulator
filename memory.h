@@ -1,10 +1,10 @@
 class Memory {
- public:
-  Memory(int size);
+	public:
+		Memory(int size);
 
-  ~Memory(void);
+		~Memory(void);
 
- private:
-  int* memory;
-  int size;
+	private:
+		int* memory;
+		int size;
 };

@@ -1,8 +1,8 @@
 class Access {
- public:
-  Access(void);
+	public:
+		Access(void);
 
-  ~Access(void);
+		~Access(void);
 
- private:
+	private:
 };

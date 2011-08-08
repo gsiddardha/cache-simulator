@@ -1,19 +1,19 @@
 class Cache {
- public:
-  Cache(int cache_size, int block_size, int assoc);
+	public:
+		Cache(int cache_size, int block_size, int assoc);
 
-  int get_hits(void);
-  int get_misses(void);
+		int get_hits(void);
+		int get_misses(void);
 
-  ~Cache(void);
+		~Cache(void);
 
- private:
-  int* memory;
+	private:
+		int* memory;
 
-  int cache_size;
-  int block_size;
-  int assoc;
+		int cache_size;
+		int block_size;
+		int assoc;
 
-  int hits;
-  int misses;
+		int hits;
+		int misses;
 };
