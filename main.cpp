@@ -8,6 +8,12 @@
 
 using namespace std;
 
+// Global variable declaration
+Access* accessor;
+
+// Global prototype decalaration
+int M(int, int);
+
 int main(int argc, char** argv) {
 	if(argc!=5) {
 		printf("Usage: %s <cache_size_inKB> <block_size_inB> <associativity> <input_file>\n", argv[0]);
@@ -15,8 +21,8 @@ int main(int argc, char** argv) {
 	}
 
 	// Declaring variables
-	int n;
-	Memory* mem;
+	int i, j, buf;
+	int matrix_n;
 	ifstream inFile;
 	
 	// Opening files
@@ -28,14 +34,26 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	// Reading Matrix
-	inFile >> n;
+	// Reading Matrix Length
+	inFile >> matrix_n;
 
-	// Initalize memory
-	mem = new Memory(n);
+	// Initalize accessor
+	accessor = new Access(matrix_n);
+
+	// Reading matrix
+	for(i=0; i<matrix_n; i++) {
+		for(j=0; j<matrix_n; j++) {
+			inFile >> buf;
+			accessor->write(i, j, buf);
+		}
+	}
 
 	// Closing files
 	inFile.close();
 
 	return 0;
+}
+
+int M(int x, int y) {
+	return accessor->get(x, y);
 }

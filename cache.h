@@ -1,3 +1,6 @@
+#ifndef CACHE_H
+#define CACHE_H
+
 class Cache {
 	public:
 		Cache(int cache_size, int block_size, int assoc);
@@ -17,3 +20,5 @@ class Cache {
 		int hits;
 		int misses;
 };
+
+#endif

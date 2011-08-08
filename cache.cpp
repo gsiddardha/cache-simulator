@@ -16,7 +16,6 @@ Cache::Cache(int cache_size, int block_size, int assoc) {
 
 	//TODO: Introduce blocks later
 	this->memory = new int(this->cache_size/4);
-	return;
 }
 
 int Cache::get_hits(void) {
