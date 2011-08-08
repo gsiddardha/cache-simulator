@@ -4,17 +4,22 @@
 
 using namespace std;
 
-Memory::Memory(int n) {
-	this->n = n;
-	this->memory = new int[n*n];
+Memory::Memory(int size) {
+	this->size = size*256;
+	this->writer = 0;
+	this->memory = new int[this->size];
 }
 
-void Memory::set(int x, int y, int value) {
-	this->memory[x*n+y] = value;
+void Memory::write(int value) {
+	this->memory[writer++] = value;
 }
 
-int Memory::get(int x, int y) {
-	return this->memory[x*n+y];
+int Memory::read(int address) {
+	return this->memory[address];
+}
+
+void Memory::store(int address, int value) {
+	this->memory[address] = value;
 }
 
 Memory::~Memory(void) {

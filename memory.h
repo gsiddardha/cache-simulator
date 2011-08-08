@@ -3,16 +3,18 @@
 
 class Memory {
 	public:
-		Memory(int n);
+		Memory(int size);
 
-		void set(int x, int y, int value);
-		int get(int x, int y);
+		void write(int value);
+		int read(int address);
+		void store(int address, int value);
 
 		~Memory(void);
 
 	private:
 		int* memory;
-		int n;
+		int size;
+		int writer;
 };
 
 #endif
