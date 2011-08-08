@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cstdlib>
+#include "access.h"
 
 using namespace std;
 
-void get(int index) {
+Access::Access(void) {}
 
-}
+Access::~Access(void) {}

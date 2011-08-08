@@ -1,10 +1,10 @@
-CC= gcc
+CC= g++
 CFLAGS= -Wall -pedantic -g
 RM= rm -rf
 
 all: sim
 
-sim: access.o cache.o memory.o main.c
+sim: access.o cache.o memory.o main.cpp
 	$(CC) $(CFLAGS) $^ -o $@
 
 %.o: %.c

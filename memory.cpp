@@ -1,10 +1,15 @@
 #include <iostream>
 #include <cstdlib>
+#include "memory.h"
 
 using namespace std;
 
-char* memory = NULL;
+Memory::Memory(int size) {
+  this->size = size;
+  this->memory = new int(this->size);
+  return;
+}
 
-void init_memory(int size, int** data) {
-
+Memory::~Memory(void) {
+  delete(this->memory);
 }
