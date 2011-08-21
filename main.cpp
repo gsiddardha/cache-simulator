@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
-#include "access.h"
-#include "cache.h"
-#include "memory.h"
+#include "Access.h"
+#include "Cache.h"
+#include "Memory.h"
 
 using namespace std;
 

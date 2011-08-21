@@ -1,12 +1,12 @@
 #ifndef ACCESS_H
 #define ACCESS_H
 
-#include "memory.h"
-#include "cache.h"
+#include "Memory.h"
+#include "Cache.h"
 
 class Access {
 public:
-	Access(int matrix_n, int cache_size, int block_size, int set_size, int memory_size);
+	Access(int matrix_n, int cache_size, int block_size, int assoc, int memory_size);
 
 	void write(int value);
 	void set(int x, int y, int value);
@@ -18,6 +18,8 @@ private:
 	int matrix_n;
 	Memory* memory;
 	Cache* cache;
+
+	int bits_n;	// Number of bits in the address
 
 };
 
