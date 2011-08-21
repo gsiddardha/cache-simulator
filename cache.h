@@ -1,8 +1,6 @@
 #ifndef CACHE_H
 #define CACHE_H
 
-#include "set.h"
-
 class Cache {
 	public:
 		Cache(int cache_size, int block_size, int set_size);
@@ -21,7 +19,7 @@ class Cache {
 		int hits;
 		int misses;
 
-		Set** memory;
+		int* memory;
 };
 
 #endif

@@ -17,10 +17,6 @@ Cache::Cache(int cache_size, int block_size, int set_size) {
 
 	this->set_n = this->cache_size / (this->set_size * this->block_size);
 	//TODO: Introduce blocks later
-	for( int i=0; i<set_n; i++) {
-		this->memory[i] = new Set(this->set_size, this->block_size);
-	}
-
 }
 
 int Cache::get_hits(void) {
