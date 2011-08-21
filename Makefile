@@ -4,7 +4,7 @@ RM= rm -rf
 
 all: sim
 
-sim: access.o cache.o memory.o matrix/aware.o matrix/unaware.o matrix/oblivious.o main.cpp
+sim: access.o cache.o memory.o set.o block.o matrix/aware.o matrix/unaware.o matrix/oblivious.o main.cpp
 	$(CC) $(CFLAGS) $^ -o $@
 
 %.o: %.c

@@ -6,7 +6,7 @@
 
 class Access {
 	public:
-		Access(int memory_size);
+		Access(int cache_size, int block_size, int set_size, int memory_size);
 
 		void write(int value);
 		void set(int addr, int value);
@@ -15,8 +15,8 @@ class Access {
 		~Access(void);
 
 	private:
-		int matrix_n;
 		Memory* memory;
+		Cache* cache;
 };
 
 #endif

@@ -1,2 +1,5 @@
 sim
 *.o
+Debug
+.cproject
+.project

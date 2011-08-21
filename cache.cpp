@@ -4,18 +4,23 @@
 
 using namespace std;
 
-Cache::Cache(int cache_size, int block_size, int assoc) {
+Cache::Cache(int cache_size, int block_size, int set_size) {
 	this->hits = 0;
 	this->misses = 0;
 
 	// Cache size is given in KB
 	this->cache_size = cache_size*1024;
+
 	// Block size is given in B
 	this->block_size = block_size;
-	this->assoc = assoc;
+	this->set_size = set_size;
 
+	this->set_n = this->cache_size / (this->set_size * this->block_size);
 	//TODO: Introduce blocks later
-	this->memory = new int(this->cache_size/4);
+	for( int i=0; i<set_n; i++) {
+		this->memory[i] = new Set(this->set_size, this->block_size);
+	}
+
 }
 
 int Cache::get_hits(void) {

@@ -1,10 +1,7 @@
 #include <iostream>
-#include <cstdio>
 #include <cstdlib>
 #include <fstream>
 #include "access.h"
-#include "cache.h"
-#include "memory.h"
 
 using namespace std;
 
@@ -23,7 +20,7 @@ int B(int x, int y);
 
 int main(int argc, char** argv) {
 	if(argc!=5) {
-		printf("Usage: %s <cache_size_inKB> <block_size_inB> <associativity> <memory_size_inKB>\n", argv[0]);
+		cout << "Usage: " << argv[0] << "<cache_size_inKB> <block_size_inB> <associativity> <memory_size_inKB>\n";
 		return 1;
 	}
 
@@ -40,8 +37,8 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	// Initalize accessor
-	accessor = new Access(atoi(argv[4]));
+	// Initialise accessor
+	accessor = new Access(atoi(argv[1]), atoi(argv[2]), atoi(argv[3]), atoi(argv[4]));
 
 	// Reading matrix lengths
 	inFile >> matrix_n >> matrix_m >> matrix_p;
@@ -72,6 +69,7 @@ int main(int argc, char** argv) {
 	cout << "Cache Oblivious:" << endl;
 	cache_oblivious();
 	cout << endl << "\tCache Statistics:" << endl << endl;
+
 	// Closing files
 	inFile.close();
 

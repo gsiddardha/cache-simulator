@@ -1,9 +1,11 @@
 #ifndef CACHE_H
 #define CACHE_H
 
+#include "set.h"
+
 class Cache {
 	public:
-		Cache(int cache_size, int block_size, int assoc);
+		Cache(int cache_size, int block_size, int set_size);
 
 		int get_hits(void);
 		int get_misses(void);
@@ -11,14 +13,15 @@ class Cache {
 		~Cache(void);
 
 	private:
-		int* memory;
-
 		int cache_size;
 		int block_size;
-		int assoc;
+		int set_size;
+		int set_n;
 
 		int hits;
 		int misses;
+
+		Set** memory;
 };
 
 #endif
