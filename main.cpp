@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdio>
 #include <cstdlib>
 #include <fstream>
 #include "access.h"
@@ -11,12 +10,12 @@ using namespace std;
 // Global variable declaration
 Access* accessor;
 
-// Global prototype decalaration
+// Global prototype declaration
 int M(int, int);
 
 int main(int argc, char** argv) {
 	if(argc!=5) {
-		printf("Usage: %s <cache_size_inKB> <block_size_inB> <associativity> <memory_size_inKB>\n", argv[0]);
+		cout << "Usage: " << argv[0] << "<cache_size_inKB> <block_size_inB> <associativity> <memory_size_inKB>\n";
 		return 1;
 	}
 
@@ -37,8 +36,8 @@ int main(int argc, char** argv) {
 	// Reading Matrix Length
 	inFile >> matrix_n;
 
-	// Initalize accessor
-	accessor = new Access(matrix_n, atoi(argv[4]));
+	// Initialise accessor
+	accessor = new Access(matrix_n, atoi(argv[1]), atoi(argv[2]), atoi(argv[3]), atoi(argv[4]));
 
 	// Reading matrix
 	for(i=0; i<matrix_n; i++) {
@@ -47,6 +46,8 @@ int main(int argc, char** argv) {
 			accessor->write(buf);
 		}
 	}
+
+	// TODO: Implement Matrix multiplication algorithms
 
 	// Closing files
 	inFile.close();

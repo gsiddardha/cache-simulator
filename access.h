@@ -5,18 +5,20 @@
 #include "cache.h"
 
 class Access {
-	public:
-		Access(int matrix_n, int memory_size);
+public:
+	Access(int matrix_n, int cache_size, int block_size, int set_size, int memory_size);
 
-		void write(int value);
-		void set(int x, int y, int value);
-		int get(int x, int y);
+	void write(int value);
+	void set(int x, int y, int value);
+	int get(int x, int y);
 
-		~Access(void);
+	~Access(void);
 
-	private:
-		int matrix_n;
-		Memory* memory;
+private:
+	int matrix_n;
+	Memory* memory;
+	Cache* cache;
+
 };
 
 #endif
