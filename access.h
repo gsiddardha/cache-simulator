@@ -6,11 +6,11 @@
 
 class Access {
 	public:
-		Access(int matrix_n, int memory_size);
+		Access(int memory_size);
 
 		void write(int value);
-		void set(int x, int y, int value);
-		int get(int x, int y);
+		void set(int addr, int value);
+		int get(int addr);
 
 		~Access(void);
 

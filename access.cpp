@@ -4,8 +4,7 @@
 
 using namespace std;
 
-Access::Access(int matrix_n, int memory_size) {
-	this->matrix_n = matrix_n;
+Access::Access(int memory_size) {
 	this->memory = new Memory(memory_size);
 }
 
@@ -13,12 +12,12 @@ void Access::write(int value) {
 	this->memory->write(value);
 }
 
-void Access::set(int x, int y, int value) {
-	this->memory->store(x*matrix_n+y, value);
+void Access::set(int addr, int value) {
+	this->memory->store(addr, value);
 }
 
-int Access::get(int x, int y) {
-	return this->memory->read(x*matrix_n+y);
+int Access::get(int addr) {
+	return this->memory->read(addr);
 }
 
 Access::~Access(void) {
