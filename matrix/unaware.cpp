@@ -19,10 +19,8 @@ void cache_unaware(void) {
 
 	for(i=0; i<matrix_n; i++) {
 		for(j=0; j<matrix_p; j++) {
-			C[i][j] = 0;
-			for(k=0; k<matrix_m; k++) {
+			for(k=0; k<matrix_m; k++)
 				C[i][j] += A(i,k)*B(k,j);
-			}
 			cout << "\t" << C[i][j];
 		}
 		cout << endl;

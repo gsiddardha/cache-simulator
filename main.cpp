@@ -10,7 +10,7 @@ using namespace std;
 
 // External functions
 extern void cache_unaware(void);
-extern void cache_aware(void);
+extern void cache_aware(int);
 extern void cache_oblivious(void);
 
 // Global variable declaration
@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
 
 	// Cache Aware matrix multiplication
 	cout << "Cache Aware:" << endl;
-	cache_aware();
+	cache_aware(atoi(argv[2])/4);
 	cout << endl << "\tCache Statistics:" << endl << endl;
 
 	// Cache Oblivious matrix multiplication
