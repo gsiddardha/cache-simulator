@@ -8,8 +8,18 @@
 
 using namespace std;
 
+// External functions
+extern void cache_unaware(void);
+extern void cache_aware(void);
+extern void cache_oblivious(void);
+
 // Global variable declaration
 Access* accessor;
+int matrix_n, matrix_m, matrix_p;
+
+// Function prototype declaration
+int A(int x, int y);
+int B(int x, int y);
 
 int main(int argc, char** argv) {
 	if(argc!=5) {
@@ -19,7 +29,6 @@ int main(int argc, char** argv) {
 
 	// Declaring variables
 	int i, j, buf;
-	int matrix_n, matrix_m, matrix_p;
 	ifstream inFile;
 	
 	// Opening files
@@ -49,8 +58,30 @@ int main(int argc, char** argv) {
 			accessor->write(buf);
 		}
 
+	// Cache Unaware matrix multiplication
+	cout << "Cache Unaware:" << endl;
+	cache_unaware();
+	cout << endl << "\tCache Statistics:" << endl << endl;
+
+	// Cache Aware matrix multiplication
+	cout << "Cache Aware:" << endl;
+	cache_aware();
+	cout << endl << "\tCache Statistics:" << endl << endl;
+
+	// Cache Oblivious matrix multiplication
+	cout << "Cache Oblivious:" << endl;
+	cache_oblivious();
+	cout << endl << "\tCache Statistics:" << endl << endl;
 	// Closing files
 	inFile.close();
 
 	return 0;
+}
+
+int A(int x, int y) {
+	return accessor->get(x*matrix_m+y);
+}
+
+int B(int x, int y) {
+	return accessor->get(matrix_n*matrix_m+x*matrix_p+y);
 }

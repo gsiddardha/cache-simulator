@@ -2,5 +2,29 @@
 #include <cstdlib>
 #include "../access.h"
 
-void cache_unaware(Access* accessor, int n, int m, int p) {
+using namespace std;
+
+// External variables & functions
+extern int matrix_n, matrix_m, matrix_p;
+extern int A(int, int);
+extern int B(int, int);
+
+void cache_unaware(void) {
+	int i, j, k;
+
+	int** C = new int*[matrix_n];
+	for(i=0; i<matrix_n; i++) {
+		C[i] = new int[matrix_p];
+	}
+
+	for(i=0; i<matrix_n; i++) {
+		for(j=0; j<matrix_p; j++) {
+			C[i][j] = 0;
+			for(k=0; k<matrix_m; k++) {
+				C[i][j] += A(i,k)*B(k,j);
+			}
+			cout << "\t" << C[i][j];
+		}
+		cout << endl;
+	}
 }
